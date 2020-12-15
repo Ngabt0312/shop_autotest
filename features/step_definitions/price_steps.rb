@@ -7,13 +7,12 @@ Given('click menu shop') do
   
   When('adjust the filter by price') do
     #move price slider 
-    $slider = $driver.find_element(:css, ".ui-slider-handle")
-    $driver.action.drag_and_drop_by($slider[0], 30, 0).perform
-    $driver.action.drag_and_drop_by($slider[1], -30, 0).perform
-
+    $slider = $driver.find_elements(:css, ".ui-slider-handle")
+    $driver.action.drag_and_drop_by($slider[0], 0, 0).perform
+    $driver.action.drag_and_drop_by($slider[1], 30, 0).perform #chưa hiểu rõ cơ chế sao lấy được đúng giá trị tiền
   end
   
-  Then('view books only between {int} to {int} rps price') do |int, int2|
-  
-    
+  Then('view prices book') do 
+    $price_from = expect($driver.find_element(:css, ".from").text).to include("₹150")
+    $price_to = expect($driver.find_element(:css, ".to").text).to include("₹500")
   end

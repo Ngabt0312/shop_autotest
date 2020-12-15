@@ -5,4 +5,4 @@ I have a scenario
 Scenario: shop price
 Given click menu shop
 When adjust the filter by price
-Then view books only between 150 to 450 rps price
+Then view prices book
